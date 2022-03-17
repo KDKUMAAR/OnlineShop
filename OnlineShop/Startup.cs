@@ -26,6 +26,7 @@ namespace OnlineShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSession(option => { option.IdleTimeout = TimeSpan.FromMinutes(20); });
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddDbContext<OnlineShop.Data.AppContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
@@ -49,7 +50,7 @@ namespace OnlineShop
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
             app.UseRouting();
 
             app.UseAuthorization();
@@ -58,7 +59,7 @@ namespace OnlineShop
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Product}/{action=Index}/{id?}");
             });
         }
     }

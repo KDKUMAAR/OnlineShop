@@ -4,15 +4,18 @@
     <div style="display:flex">
         @foreach (var product in ViewBag.Products)
         {
-            <div style="margin-right:5px">
+        <a style="text-decoration:none; color:black" asp-controller="Cart" asp-action="CartDetail" asp-route-id=@product.Id>
+            <div style="margin-right:5px;cursor:pointer">
                 <h6>@product.ProductName</h6>
                 <img style="width:200px; height:250px" src=@product.ImagePath />
                 <div>
                     <p>Price:<span>@product.Price</span></p>
                 </div>
             </div>
-        }
+        </a>
+                }
+                
 
-    </div>
+        </div>
     <button>Check out</button>
 </div>

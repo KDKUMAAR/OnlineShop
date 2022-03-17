@@ -9,5 +9,7 @@ namespace OnlineShop.Data.Repos
     public interface IProductRepository
     {
         List<ProductEntity> GetProducts();
+
+        ProductEntity GetProduct(int productId);
     }
 }

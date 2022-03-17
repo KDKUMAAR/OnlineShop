@@ -14,6 +14,11 @@ namespace OnlineShop.Data.Repos
             _dbContext = dbContext;
         }
 
+        public ProductEntity GetProduct(int productId)
+        {
+            return _dbContext.Products.FirstOrDefault(x => x.Id == productId);
+        }
+
         public List<ProductEntity> GetProducts()
         {
             return _dbContext.Products.ToList();

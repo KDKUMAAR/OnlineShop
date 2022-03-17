@@ -1,0 +1,18 @@
+﻿<h1>Cart View</h1>
+
+<div  style="display:flex; margin-right:5px;cursor:pointer">
+    <div>
+        <h6>@ViewBag.Product.ProductName</h6>
+        <img style="width:300px; height:350px" src=@ViewBag.Product.ImagePath />
+        <div>
+            <p><span>@ViewBag.Product.Description</span></p>
+        </div>
+    </div>
+
+    <div style="text-align:center">
+        <p>Price: @ViewBag.Product.Price</p><br />
+        <input style="width:100px"/><br />
+       <p><button>Add To Cart</button></p> 
+    </div>
+
+</div>
